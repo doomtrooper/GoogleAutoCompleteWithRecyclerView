@@ -65,6 +65,7 @@ public class PlacesAutoCompleteActivity extends AppCompatActivity implements Goo
                     mAutoCompleteAdapter.getFilter().filter(s.toString());
                 }else if(!mGoogleApiClient.isConnected()){
                     Toast.makeText(getApplicationContext(), Constants.API_NOT_CONNECTED,Toast.LENGTH_SHORT).show();
+                    Log.e(Constants.PlacesTag,Constants.API_NOT_CONNECTED);
                 }
 
             }
@@ -141,7 +142,6 @@ public class PlacesAutoCompleteActivity extends AppCompatActivity implements Goo
                 .build();
     }
 
-
     @Override
     public void onConnected(Bundle bundle) {
         Log.v("Google API Callback", "Connection Done");
@@ -188,8 +188,5 @@ public class PlacesAutoCompleteActivity extends AppCompatActivity implements Goo
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent();
-        setResult(0,intent);
-        finish();
     }
 }
